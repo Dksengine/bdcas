@@ -37,7 +37,7 @@ Clone the repository:
 git clone https://github.com/Dksengine/bdcas
 ```
 
-Now change permission to `AquariumControl`
+Now change permission to `bdcas`
 
 ```bash
 sudo chmod +x bdcas
