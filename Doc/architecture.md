@@ -16,6 +16,7 @@
 * Fetching Time : 1000
 * Api : https://www.callmebot.com
 
+
 ```json
 {
   "MosquittoServer": 1799,
@@ -96,5 +97,23 @@
 
 For the frontend the choice is react, running on a server. The idea is using apexChart for chart library and websocket for comunicating with the backend.
 
+### Sidebar
+
+* Temperature
+* pH
+* Doso
+* Alarms
+* Settings
+* Logs
+
+### Topbar
+
+* Wifi
+* Logo
+* Alarm
+
+
+### Footer
+* Software version
 
 ## Backend

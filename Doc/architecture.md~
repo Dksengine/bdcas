@@ -16,7 +16,6 @@
 * Fetching Time : 1000
 * Api : https://www.callmebot.com
 
-
 ```json
 {
   "MosquittoServer": 1799,
