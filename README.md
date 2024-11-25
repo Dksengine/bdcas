@@ -1,5 +1,5 @@
 # BDCAS - Blue Dolphin Computer Aquarium System
-![logo]('Doc/logo.png') 
+![logo](Doc/logo.png) 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
