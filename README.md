@@ -1,5 +1,5 @@
-# Aquarium-Control
-
+# BDCAS - Blue Dolphin Computer Aquarium System
+![logo]('logo.png') 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
@@ -34,13 +34,13 @@ sudo dfn install git
 Clone the repository:
 
 ```bash
-git clone https://github.com/Dksengine/Aquarium-Control
+git clone https://github.com/Dksengine/bdcas
 ```
 
 Now change permission to `AquariumControl`
 
 ```bash
-sudo chmod +x AcquariumControl
+sudo chmod +x bdcas
 ```
 
 Do the same for the `dep.sh` script:
