@@ -26,6 +26,9 @@ jobs:
       - name: Create assets directory (if not exists)
         run: |
           mkdir -p wiki/assets  # Crea la cartella assets nella Wiki se non esiste già
+      - name: Create Doc directory (if not exists)    
+        run: |
+          mkdir -p wiki/Doc  # Crea la cartella Doc nella Wiki se non esiste già
 
       - name: Copy documentation to wiki folder
         run: |
