@@ -34,7 +34,7 @@ jobs:
         run: |
           cp README.md wiki/Home.md  # Copia il README come Home nella Wiki
           cp -r Doc/* wiki/Doc/  # Copia la cartella Doc
-          cp Doc/logo.png wiki/assets/  # Copia l'immagine/logo nella cartella assets
+          cp assets/* wiki/assets/  # Copia l'immagine/logo nella cartella assets
 
       - name: Commit and push updated wiki
         run: |
