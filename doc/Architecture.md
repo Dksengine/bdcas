@@ -1,7 +1,6 @@
 # Architecture
 
-
-![architecture](.../assets/architecture.png)
+![architecture](../assets/architecture.png)
 
 ## Feature
 
