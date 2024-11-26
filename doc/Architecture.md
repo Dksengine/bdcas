@@ -1,8 +1,10 @@
 # Architecture
 
+
 ![architecture](../assets/architecture.png)
 
 ## Feature
+
 
 * Authentification
 * Responsive layout
@@ -11,6 +13,7 @@
 * JSON configuration
 
 ## Configuration
+
 
 * Mosquitto Server : 1799
 * Alarms : [{string : {value...}...}
