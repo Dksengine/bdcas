@@ -3,8 +3,7 @@ name: Build and Release Deb Package
 on:
   push:
     tags:
-      - '*'  # Trigger quando viene fatto il push di un tag
-
+      - '*' 
 jobs:
   build:
     runs-on: ubuntu-latest
