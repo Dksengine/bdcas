@@ -16,7 +16,7 @@ jobs:
       - name: Checkout wiki repository
         uses: actions/checkout@v3
         with:
-          repository: Dksengine/bdcas.wiki
+          repository: Dksengine/bdcas/wiki
           path: wiki
 
       - name: Copy documentation to wiki folder
