@@ -1,12 +1,9 @@
-name: Build Deb Package
+name: Build and Release Deb Package
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - '*'  # Trigger quando viene fatto il push di un tag
 
 jobs:
   build:
@@ -75,8 +72,9 @@ jobs:
       - name: Build package
         run: dpkg-buildpackage -us -uc -b
 
-      - name: Upload package
-        uses: actions/upload-artifact@v3
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: ubuntu-dev-package
-          path: /usr/local/bin/bdcas 
+          files: ./bdcas_*.deb  # Modifica il percorso del pacchetto `.deb`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
