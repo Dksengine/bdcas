@@ -1,0 +1,33 @@
+name: Update Wiki
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  update_wiki:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main repository
+        uses: actions/checkout@v3
+
+      - name: Checkout wiki repository
+        uses: actions/checkout@v3
+        with:
+          repository: Dksengine/bdcas.wiki
+          path: wiki
+
+      - name: Copy documentation to wiki folder
+        run: |
+          cp -r Doc/* wiki/
+
+      - name: Commit and push updated wiki
+        run: |
+          cd wiki
+          git config user.name "Dksengine"
+          git config user.email "info@dksengine.it"
+          git add .
+          git commit -m "Update Wiki documentation"
+          git push
