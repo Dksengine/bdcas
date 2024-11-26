@@ -1,5 +1,7 @@
 # Architecture
 
+![architecture](../assets/architecture.png)
+
 ## Feature
 
 * Authentification
