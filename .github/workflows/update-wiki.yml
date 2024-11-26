@@ -26,6 +26,7 @@ jobs:
         run: |
           cp README.md wiki/Home.md
           cp -r Doc/* wiki/
+          cp Doc/logo.png wiki/Doc/
 
       - name: Commit and push updated wiki
         run: |
