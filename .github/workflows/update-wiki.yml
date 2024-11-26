@@ -32,7 +32,7 @@ jobs:
       - name: Copy documentation to wiki folder
         run: |
           cp README.md wiki/Home.md
-          cp -r Doc/* wiki/doc/  
+          cp -r doc/* wiki/doc/  
           cp assets/* wiki/assets/
 
       - name: Commit and push updated wiki
