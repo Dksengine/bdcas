@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -12,12 +13,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { Outlet } from 'react-router';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router'
 import { menuItems } from '../navigation/menuItems'
 import AccountMenu from '../components/dropDown'
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const drawerWidth = 240;
 
@@ -47,10 +48,10 @@ function ResponsiveDrawer(props) {
 		<div>
 			<List sx={{ mt: 4 }}>
 				{menuItems.map((elem, index) => (
-				  <Link style={{ textDecoration: 'none', color : 'inherit' }}  key={index} to={elem.path}>
-						<ListItem  disablePadding>
+					<Link style={{ textDecoration: 'none', color: 'inherit' }} key={index} to={elem.path}>
+						<ListItem disablePadding>
 							<ListItemButton>
-								<ListItemIcon>
+								<ListItemIcon >
 									{elem.icon}
 								</ListItemIcon>
 								<ListItemText primary={elem.name} />
@@ -70,11 +71,10 @@ function ResponsiveDrawer(props) {
 			<AppBar
 				position="fixed"
 				sx={{
-					width: { sm: `calc(100% - ${drawerWidth}px)` },
-					ml: { sm: `${drawerWidth}px` },
+					boxShadow: 0,
 				}}
 			>
-				<Toolbar>
+				<Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }} elevation={0}>
 					<IconButton
 						color="inherit"
 						aria-label="open drawer"
@@ -84,7 +84,10 @@ function ResponsiveDrawer(props) {
 					>
 						<MenuIcon />
 					</IconButton>
-				  <AccountMenu />
+					<Avatar  sx={{ width: 32, height: 32}} >
+						<NotificationsIcon  />
+					</Avatar>
+					<AccountMenu />
 				</Toolbar>
 			</AppBar>
 			<Box
@@ -129,6 +132,20 @@ function ResponsiveDrawer(props) {
 			>
 				<Toolbar />
 				<Outlet />
+				<Box
+					sx={{
+						position: 'fixed',
+						bottom: 0,
+						left: 0,
+						right: 0,
+						textAlign: 'center',
+						padding: '10px 0',
+					}}
+				>
+					<Typography variant="body2">
+						© {new Date().getFullYear()} Blue Dolphin Computer Aquarium System. All rights reserved.
+					</Typography>
+				</Box>
 			</Box>
 		</Box>
 	);
