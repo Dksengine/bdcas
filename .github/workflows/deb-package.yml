@@ -79,4 +79,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ubuntu-dev-package
-          path: ../*.deb
+          path: /usr/local/bin/bdcas 
