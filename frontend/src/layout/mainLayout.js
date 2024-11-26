@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,27 +11,17 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import TemperatureIcon from '@mui/icons-material/AcUnit';
-import PhIcon from '@mui/icons-material/LocalDrink';
-import DosageIcon from '@mui/icons-material/LocalPharmacy';
-import AlarmIcon from '@mui/icons-material/Alarm';
-import SettingsIcon from '@mui/icons-material/Settings';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import WifiIcon from '@mui/icons-material/Wifi';
 import { Outlet } from 'react-router';
 import { Avatar } from '@mui/material';
-
+import { Link } from 'react-router'
+import { menuItems } from '../navigation/menuItems'
+import AccountMenu from '../components/dropDown'
 
 const drawerWidth = 240;
 
-const menuItems = [
-	{ name: 'Temperature', icon: <TemperatureIcon /> },
-	{ name: 'pH', icon: <PhIcon /> },
-	{ name: 'Doso', icon: <DosageIcon /> },
-	{ name: 'Alarms', icon: <AlarmIcon /> },
-	{ name: 'Settings', icon: <SettingsIcon /> }
-];
+
 
 function ResponsiveDrawer(props) {
 	const { window } = props;
@@ -56,21 +45,22 @@ function ResponsiveDrawer(props) {
 
 	const drawer = (
 		<div>
-		  <List sx={{mt : 4}}>
+			<List sx={{ mt: 4 }}>
 				{menuItems.map((elem, index) => (
-					<ListItem key={index} disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								{elem.icon}
-							</ListItemIcon>
-							<ListItemText primary={elem.name} />
-						</ListItemButton>
-					</ListItem>
+				  <Link style={{ textDecoration: 'none', color : 'inherit' }}  key={index} to={elem.path}>
+						<ListItem  disablePadding>
+							<ListItemButton>
+								<ListItemIcon>
+									{elem.icon}
+								</ListItemIcon>
+								<ListItemText primary={elem.name} />
+							</ListItemButton>
+						</ListItem>
+					</Link>
 				))}
 			</List>
 		</div>
 	);
-
 
 	const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -94,14 +84,15 @@ function ResponsiveDrawer(props) {
 					>
 						<MenuIcon />
 					</IconButton>
-					<WifiIcon />
+				  <AccountMenu />
 				</Toolbar>
 			</AppBar>
 			<Box
 				component="nav"
-
+				sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
 				aria-label="mailbox folders"
 			>
+
 				<Drawer
 					container={container}
 					variant="temporary"
@@ -109,7 +100,7 @@ function ResponsiveDrawer(props) {
 					onTransitionEnd={handleDrawerTransitionEnd}
 					onClose={handleDrawerClose}
 					ModalProps={{
-						keepMounted: true,
+						keepMounted: true, // Better open performance on mobile.
 					}}
 					sx={{
 						display: { xs: 'block', sm: 'none' },
@@ -122,11 +113,11 @@ function ResponsiveDrawer(props) {
 					variant="permanent"
 					sx={{
 						display: { xs: 'none', sm: 'block' },
-					  '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,  },
+						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
 					}}
 					open
 				>
-				  <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt : 2  }}>
+					<Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2 }}>
 						<Avatar src='/logo.png' sx={{ height: 90, width: 90 }} />
 					</ Box>
 					{drawer}
@@ -144,7 +135,13 @@ function ResponsiveDrawer(props) {
 }
 
 ResponsiveDrawer.propTypes = {
+	/**
+	 * Injected by the documentation to work in an iframe.
+	 * Remove this when copying and pasting into your project.
+	 */
 	window: PropTypes.func,
 };
 
 export default ResponsiveDrawer;
+
+
