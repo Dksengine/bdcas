@@ -2,8 +2,6 @@ name: Build and Release Deb Package
 
 on:
   push:
-    branches:
-      - main    # Trigger su push su main
     tags:
       - '*'     # Trigger su push di qualsiasi tag
 
@@ -68,8 +66,16 @@ jobs:
 
       - name: Create changelog
         run: |
-          VERSION=$(git describe --tags --abbrev=0 | sed 's/^v//')  # Rimuovi il prefisso "v"
-          dch --create -v ${VERSION}-dev$(date +%Y%m%d%H%M%S) --package bdcas --distribution unstable "Release"
+          # Usa git describe per ottenere la versione
+          VERSION=$(git describe --tags --abbrev=0 | sed 's/^v//')
+
+          # Se la versione è vuota, usa una versione di fallback
+          if [ -z "$VERSION" ]; then
+            VERSION="0.1.0"
+          fi
+
+          # Scrive il changelog senza il suffisso -dev
+          dch --create -v ${VERSION} --package bdcas --distribution unstable "Release"
 
       - name: Build package
         run: dpkg-buildpackage -us -uc -b
