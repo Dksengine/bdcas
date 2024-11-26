@@ -29,5 +29,5 @@ jobs:
           git config user.name "Dksengine"
           git config user.email "info@dksengine.it"
           git add .
-          git commit -m "Update Wiki documentation"
+          git commit -m "Update Wiki"
           git push
