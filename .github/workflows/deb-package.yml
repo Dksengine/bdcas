@@ -2,8 +2,11 @@ name: Build and Release Deb Package
 
 on:
   push:
+    branches:
+      - main    # Trigger su push su main
     tags:
-      - '*' 
+      - '*'     # Trigger su push di qualsiasi tag
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -65,7 +68,7 @@ jobs:
 
       - name: Create changelog
         run: |
-          VERSION=$(git describe --tags --abbrev=0 || echo "0.1.0")
+          VERSION=$(git describe --tags --abbrev=0 | sed 's/^v//')  # Rimuovi il prefisso "v"
           dch --create -v ${VERSION}-dev$(date +%Y%m%d%H%M%S) --package bdcas --distribution unstable "Release"
 
       - name: Build package
