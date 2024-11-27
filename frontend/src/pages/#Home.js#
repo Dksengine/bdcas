@@ -2,7 +2,7 @@ import { Box, CardContent, Avatar, CardHeader, TextField, Typography } from '@mu
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import LoginIcon from '@mui/icons-material/Login';
-import { blue, red } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 const Home = () => {
 	return (
 		<Box sx={{ display: 'flex', height: '100vh' }}>

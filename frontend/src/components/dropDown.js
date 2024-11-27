@@ -48,6 +48,7 @@ export default function AccountMenu() {
             elevation: 0,
             sx: {
               overflow: 'visible',
+			  width : 220,
               mt: 1.5,
               '& .MuiAvatar-root': {
                 width: 32,
@@ -76,16 +77,7 @@ export default function AccountMenu() {
         <MenuItem onClick={handleClose}>
           <Avatar /> Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />

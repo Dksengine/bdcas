@@ -1,0 +1,77 @@
+import { createTheme } from '@mui/material';
+
+export const theme = createTheme({
+	palette: {
+		background: {
+			default: '#f9fafb',
+		},
+	},
+	typography: {
+		fontFamily: "'Plus Jakarta Sans', sans-serif",
+		h6: {
+			fontWeight: 600,
+		},
+	},
+	components: {
+		MuiTextField: {
+			styleOverrides: {
+				root: {
+					'& .MuiInputLabel-root': {
+						fontSize: 16
+
+					},
+					'& .MuiOutlinedInput-root': {
+						'& fieldset': {
+							borderColor: '#1976d2',
+							borderWidth: 2,
+							backgroundColor: 'white'
+						},
+						'&:hover fieldset': {
+							borderColor: '#1565c0',
+						},
+
+					},
+				},
+			},
+		},
+		MuiAppBar: {
+			styleOverrides: {
+				root: {
+					backgroundColor: 'white',
+					borderBottom: '1px solid #ccc',
+				},
+			},
+		},
+		MuiMenu: {
+			styleOverrides: {
+				paper: {
+					boxShadow: 'none',
+					border: '1px solid #ccc',
+					borderTop: 0
+				},
+			},
+		},
+		MuiCard: {
+			styleOverrides: {
+				root: {
+					boxShadow: 'none',
+					border: '1px solid #ccc',
+				},
+			},
+		},
+		MuiButton: {
+			styleOverrides: {
+				root: {
+					borderRadius: 0,
+					boxShadow: 'none',
+					borderWidth: 2,
+					textTransform: 'none',
+				},
+			},
+		},
+
+
+
+
+	},
+});

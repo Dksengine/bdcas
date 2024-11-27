@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -19,7 +18,8 @@ import { Link } from 'react-router'
 import { menuItems } from '../navigation/menuItems'
 import AccountMenu from '../components/dropDown'
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
+import Footer from '../components/footer'
+import { blue } from '@mui/material/colors';
 const drawerWidth = 240;
 
 
@@ -46,7 +46,7 @@ function ResponsiveDrawer(props) {
 
 	const drawer = (
 		<div>
-			<List sx={{ mt: 4 }}>
+			<List sx={{ mt: 2 }}>
 				{menuItems.map((elem, index) => (
 					<Link style={{ textDecoration: 'none', color: 'inherit' }} key={index} to={elem.path}>
 						<ListItem disablePadding>
@@ -84,8 +84,8 @@ function ResponsiveDrawer(props) {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Avatar  sx={{ width: 32, height: 32}} >
-						<NotificationsIcon  />
+					<Avatar sx={{ width: 32, height: 32 }} >
+						<NotificationsIcon />
 					</Avatar>
 					<AccountMenu />
 				</Toolbar>
@@ -120,7 +120,14 @@ function ResponsiveDrawer(props) {
 					}}
 					open
 				>
-					<Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2 }}>
+					<Box sx={{
+					  display: 'flex',
+					  justifyContent: 'center',
+					  alignItems: 'center',
+					  mt: 2,
+					  background: `radial-gradient(circle, ${blue[200]} 1%, transparent 40%)`,
+
+					}}>
 						<Avatar src='/logo.png' sx={{ height: 90, width: 90 }} />
 					</ Box>
 					{drawer}
@@ -128,24 +135,12 @@ function ResponsiveDrawer(props) {
 			</Box>
 			<Box
 				component="main"
-				sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+				sx={{ flexGrow: 1, p: 4, pl: 6, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
 			>
 				<Toolbar />
+
 				<Outlet />
-				<Box
-					sx={{
-						position: 'fixed',
-						bottom: 0,
-						left: 0,
-						right: 0,
-						textAlign: 'center',
-						padding: '10px 0',
-					}}
-				>
-					<Typography variant="body2">
-						© {new Date().getFullYear()} Blue Dolphin Computer Aquarium System. All rights reserved.
-					</Typography>
-				</Box>
+				<Footer />
 			</Box>
 		</Box>
 	);
